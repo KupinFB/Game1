@@ -17,5 +17,12 @@ module.exports = {
     "indent": [2, 4],
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "vue/html-indent": ["error", 4, {
+      "attribute": 1,
+      "baseIndent": 1,
+      "closeBracket": 0,
+      "alignAttributesVertically": true,
+      "ignores": []
+    }]
   },
 };
