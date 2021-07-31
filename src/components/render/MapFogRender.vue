@@ -1,14 +1,15 @@
 <template>
-    <div class="MapRender">
-        <MapTileRender
+    <div class="MapFogRender">
+        <MapFogTileRenderer
             v-for="(tileData, index) in mapData.tiles"
             :key="index"
-            :mapTileData="tileData"
+            :tileIndex="index"
+            :mapData="mapData"
             :style="{
                 left: (index - Math.floor(index / mapData.size.x)*mapData.size.x) * 32 + 'px',
                 top: Math.floor(index / mapData.size.x) * 32 + 'px'
             }"
-        ></MapTileRender>
+        ></MapFogTileRenderer>
     </div>
 </template>
 
@@ -16,21 +17,21 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { MapData } from '@/components/models/MapData';
 import { MapUtils } from '@/components/utils/MapUtils';
-import MapTileRender from '@/components/render/MapTileRender.vue';
+import MapFogTileRenderer from '@/components/render/MapFogTileRenderer.vue';
 
 @Component({
     components: {
-        MapTileRender
+        MapFogTileRenderer
     }
 })
-export default class MapRender extends Vue {
+export default class MapFogRender extends Vue {
     @Prop({ required: true }) mapData!: MapData;
 }
 </script>
 
 <style scoped>
 
-.MapRender > .MapTileRender {
+.MapFogRender > .MapFogTileRenderer {
     position: absolute;
 }
 
